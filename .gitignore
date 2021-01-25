@@ -1,0 +1,5 @@
+Signs/
+*.swp 
+.ipynb_checkpoints/
+__pycache__/
+projectEnvirronment/
