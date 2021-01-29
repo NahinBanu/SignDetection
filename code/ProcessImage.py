@@ -45,7 +45,8 @@ def Detect_box(image, Crop = False):
         if cv2.contourArea(c) < img_area:
             new_contours.append(c)
 
-    best_box = []
+    best_box = [-1, -1, -1, -1]
+    print(len(best_box))
     for c in new_contours:
         x, y, w, h = cv2.boundingRect(c)
         if best_box[0] < 0:
