@@ -10,7 +10,7 @@ english_original = Load_Image(path)
 print("complete")
 resized_english = []
 for i in range(len(english_original)):
-    print("resizing")
+    print("|--|")
     img = Resize_Image(english_original[i])
     if img is not None:
         resized_english.append(img)
