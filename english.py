@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 import os
 
-path = ("/home/ramiz/signatureDetection/Signs/Originals/English/englishsub")
+path = str(input("enter the path of the folder : "))
 
 print("data loading")
 english_original = Load_Image(path)
