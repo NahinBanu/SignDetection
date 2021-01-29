@@ -17,7 +17,7 @@ def Load_Image(path):
     return images
 
 
-def Resize_Image(image, dim=(127, 127)):
+def Resize_Image(image, dim=(500, 90)):
     """
     This function takes a image and resize the image according to the dimension. And returns the resized image.
     """
@@ -46,7 +46,6 @@ def Detect_box(image, Crop = False):
             new_contours.append(c)
 
     best_box = [-1, -1, -1, -1]
-    print(len(best_box))
     for c in new_contours:
         x, y, w, h = cv2.boundingRect(c)
         if best_box[0] < 0:
@@ -65,7 +64,6 @@ def Detect_box(image, Crop = False):
     point_b = (best_box[2], best_box[3])
 
     if Crop:
-        print("|_|")
         img = image[best_box[1]: best_box[3], best_box[0]: best_box[2]]
 
     return img
