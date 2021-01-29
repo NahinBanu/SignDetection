@@ -78,8 +78,44 @@ def resize_box(imagelist):
 
     return box_list
 
-
+print("Boxing the images.\n")
+print(".........")
 boxed_01 = resize_box(Hindi_01)
+boxed_02 = resize_box(Hindi_02)
+boxed_03 = resize_box(Hindi_03)
+boxed_04 = resize_box(Hindi_04)
+boxed_05 = resize_box(Hindi_05)
+boxed_06 = resize_box(Hindi_06)
+boxed_07 = resize_box(Hindi_07)
+boxed_08 = resize_box(Hindi_08)
+boxed_09 = resize_box(Hindi_09)
+boxed_10 = resize_box(Hindi_10)
+
+print("..........")
+boxed_11 = resize_box(Hindi_11)
+boxed_12 = resize_box(Hindi_12)
+boxed_13 = resize_box(Hindi_13)
+boxed_14 = resize_box(Hindi_14)
+boxed_15 = resize_box(Hindi_15)
+boxed_16 = resize_box(Hindi_16)
+boxed_17 = resize_box(Hindi_17)
+boxed_18 = resize_box(Hindi_18)
+boxed_19 = resize_box(Hindi_19)
+boxed_20 = resize_box(Hindi_20)
+
+print("...........")
+boxed_21 = resize_box(Hindi_21)
+boxed_22 = resize_box(Hindi_21)
+boxed_23 = resize_box(Hindi_21)
+boxed_24 = resize_box(Hindi_21)
+boxed_25 = resize_box(Hindi_21)
+boxed_26 = resize_box(Hindi_21)
+boxed_27 = resize_box(Hindi_21)
+boxed_28 = resize_box(Hindi_21)
+boxed_29 = resize_box(Hindi_21)
+boxed_30 = resize_box(Hindi_31)
+
+
 print(os.getcwd())
 os.chdir("../..")
 print(os.getcwd())
@@ -88,4 +124,4 @@ cv2.imshow("original", Hindi_01[5])
 cv2.imshow("boxed", boxed_01[5])
 
 cv2.waitKey()
-cv2.destroyAllWindows()
+cv2.destroyAllWindows() 
