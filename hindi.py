@@ -141,6 +141,8 @@ print(os.getcwd())
 os.chdir("../..")
 print(os.getcwd())
 
+print(Hindi_31[5].shape)
+print(boxed_31[5].shape)
 cv2.imshow("original", Hindi_46[5])
 cv2.imshow("boxed", boxed_46[5])
 
