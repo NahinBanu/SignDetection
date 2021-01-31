@@ -27,8 +27,7 @@ def Resize_Image(image, dim=(500, 90)):
 
 def Detect_box(image, Crop = False):
     """
-    This function takes a list of image and finds the outer most boundaries.
-    """
+    This function takes a list of image and finds the outer most boundaries.    """
     img_yuv = cv2.cvtColor(image, cv2.COLOR_BGR2YUV)
     img_y = np.zeros(img_yuv.shape[0:2], np.uint8)
     img_y[:, :] = img_yuv[:, :, 0]
@@ -68,17 +67,46 @@ def Detect_box(image, Crop = False):
 
     return img
 
-def Save_Image(imagelist):
+def Save_Image(imagelist, file_add, middle_name, extension):
     """
     This function takes in a list of images and saves it on particular provided directory.
     """
-    where_to = str(input("\nEnter the path where the image to be saved : " ))
-    os.chdir(where_to)
-    name = str(input("Enter the name of the first picture : "))
-    extension = str(input("\nEnter the file extension (.jpg/.png) : "))
     for i in range(len(imagelist)):
-        fname = name + str(i+1) + extension
-        plt.imsave(fname, imagelist[i])
+        path = file_add + str(middle_name) + extension
+        cv2.imwrite(path, imagelist[i])
+        middle_name += 1
+    return middle_name
+
+
+def Process_Image(from_path, to_path, destination, middle_name, first_name='HIN_0', extension=".jpg"):
+    """
+    This function takes the path of the parent folder and loads images from that folder,
+    and also takes the folder address of the folder where new processed images to be saved.
+    from_path = path of the folder from where images to be loaded.
+    to_path = path where processed to be saved.
+    first_name = the common first name of the image files ( default : "HIN_0")
+    middle_name = the distint name of the image file.
+    extension = extension of the image ( default : ".jpg")
+    """
+    from_add = from_path + destination
+    print("Loading Image")
+    imagelist = Load_Image(from_add)
+
+    Box_Image = []
+    print("\nResizing Image")
+    for i in range(len(imagelist)):
+        image = Resize_Image(imagelist[i])
+        boxed = Detect_box(image, Crop=True)
+        if boxed is not None:
+            Box_Image.append(boxed)
+    print("\nbox detected")
+
+
+    file_add = to_path + destination + "/"+ first_name
+    count = Save_Image(Box_Image, file_add, middle_name, extension) 
+    print("images saved")
+
+    return count
 
 
 if __name__ == "__main__":
@@ -86,5 +114,6 @@ if __name__ == "__main__":
     Resize_Image()
     Detect_box()
     Save_Image()
+    Process_Image()
 
 
