@@ -1,34 +1,37 @@
-# from ProcessImage import Load_Image, Resize_Image, Detect_box, Save_Image, Process_Image
-# import matplotlib.pyplot as plt
-# import numpy as np
-# import cv2
-# import os
+from ProcessImage import Load_Image, Resize_Image,Detect_box, Process_Image
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import cv2
 
-# from_path = "/home/ramiz/signatureDetection/Signs/Originals/English/"
-# to_path = "/home/ramiz/signatureDetection/Signs/Processed-Original/English/"
+from_path = "/home/ramiz/signatureDetection/Signs/Originals/English/"
 
-# English_list = Load_Image(from_path)
-# print(len(English_list))
+to_path = "/home/ramiz/signatureDetection/Signs/Processed-Original/English/"
 
-# print("\nOperation started......")
-# boxed_img = []
-# for i in range(len(English_list)):
-# 	image = Resize_Image(English_list[i])
-# 	boxxd = Detect_box(image)
-# 	if box is not None:
-# 		boxed_img.append(boxxd)
+images = Load_Image(from_path)
 
-# def save_image(imagelist, to_path, name, middle, extension = ".jpg"):
-# 	for i in range(len(imagelist)):
-# 		path = to_path + name + str(middle) + extension
-# 		cv2.imwrite(path, imagelist[i])
-# 		middle += 1
+res_img, boxed = [], []
+for i in range(len(images)):
+    res = Resize_Image(images[i])
+    if res is not None:
+        res_img.append(res)
 
-# 	return middle
+for i in range(len(res_img)):
+    box = Detect_box(res_img[i])
+    if box is not None:
+        boxed.append(box)
 
-# print("\n Saving ..........")
-# count = save_image(boxed_img, to_path, 'ENG_0', 1)
 
-# print(count)
 
-# print("\n\n\n\ncompleted")
+def Save(path, imagelist):
+    filename = "ENG_"
+    extension = ".jpg"
+    start = 1
+    for i in range(len(imagelist)):
+        to_ad = path + filename + str(start) + extension
+        cv2.imwrite(to_ad, imagelist[i])
+        start += 1
+
+Save(to_path, boxed)
+
+print(" COMPLETED")
