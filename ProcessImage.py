@@ -63,9 +63,9 @@ def Detect_box(image, Crop = False):
     point_b = (best_box[2], best_box[3])
 
     if Crop:
-        image = image[best_box[1]: best_box[3], best_box[0]: best_box[2]]
+        im = image[best_box[1]: best_box[3], best_box[0]: best_box[2]]
 
-    return image
+    return im
 
 def Save_Image(imagelist, file_add, middle_name, extension):
     """
@@ -100,7 +100,7 @@ def Process_Image(from_path, to_path, destination, middle_name, first_name='HIN_
             Res_img.append(image)
 
     for i in range(len(Res_img)):
-        box = Detect_box(Res_img[i])
+        box = Detect_box(Res_img[i], Crop=True)
         if box is not None:
             Box_Image.append(box)
 
