@@ -82,10 +82,15 @@ def Process_Image(from_path, to_path, destination, middle_name, first_name='HIN_
     """
     This function takes the path of the parent folder and loads images from that folder,
     and also takes the folder address of the folder where new processed images to be saved.
+
     from_path = path of the folder from where images to be loaded.
+
     to_path = path where processed to be saved.
+
     first_name = the common first name of the image files ( default : "HIN_0")
+
     middle_name = the distint name of the image file.
+    
     extension = extension of the image ( default : ".jpg")
     """
     from_add = from_path + destination
