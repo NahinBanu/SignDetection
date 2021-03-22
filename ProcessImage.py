@@ -27,7 +27,9 @@ def Resize_Image(image, dim=(500, 90)):
 
 def Detect_box(image, Crop = False):
     """
-    This function takes a list of image and finds the outer most boundaries.    """
+    This function takes a list of image and finds the outer most boundaries and crops the image along the bounding box.
+    Crop by default is False. If image is to be cropped make that statement True.
+    """
     img_yuv = cv2.cvtColor(image, cv2.COLOR_BGR2YUV)
     img_y = np.zeros(img_yuv.shape[0:2], np.uint8)
     img_y[:, :] = img_yuv[:, :, 0]
