@@ -7,8 +7,4 @@ projectEnvironment/
 *.png
 *.jpeg
 *.jpg
-Bengali.py
-english.py
-cropping.py
-hindi.py
-urdu.py
+extra/
