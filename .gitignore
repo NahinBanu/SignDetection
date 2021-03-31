@@ -3,3 +3,12 @@ Signs/
 .ipynb_checkpoints/
 __pycache__/
 projectEnvironment/
+*.pptx
+*.png
+*.jpeg
+*.jpg
+Bengali.py
+english.py
+cropping.py
+hindi.py
+urdu.py
