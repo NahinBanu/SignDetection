@@ -92,7 +92,7 @@ def Process_Image(from_path, to_path, destination, middle_name, first_name='HIN_
     first_name = the common first name of the image files ( default : "HIN_0")
 
     middle_name = the distint name of the image file.
-    
+
     extension = extension of the image ( default : ".jpg")
     """
     from_add = from_path + destination
