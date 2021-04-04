@@ -1,6 +1,13 @@
-Signs/
-*.swp 
+
+
+# folder for the signatures
+Signs/ 
+
+*.swp
+
+
 .ipynb_checkpoints/
+
 __pycache__/
 projectEnvironment/
 *.pptx
